@@ -1,0 +1,24 @@
+HTMX, a library that allows you to access modern browser features directly from HTML, is inherently stateless in its design. HTMX itself does not manage or maintain any server-side state. Instead, it focuses on enhancing the client-side experience by enabling AJAX, CSS Transitions, WebSockets, and Server-Sent Events directly from HTML.
+
+Key Points About HTMX:
+Client-Side Focus:
+
+HTMX operates on the client side, enhancing the HTML and DOM interactions without requiring server-side session management.
+
+It allows for dynamic updates to the DOM based on user interactions, AJAX requests, and other events.
+
+Stateless Nature:
+
+HTMX does not store or manage any session data on the server. It relies on the server to handle requests and responses in a stateless manner.
+
+Each request made by HTMX to the server is independent, and the server does not need to maintain any session state to process these requests.
+
+Token-Based Authentication:
+
+If your application uses token-based authentication (e.g., JWT), HTMX can be integrated with this approach seamlessly. The token is typically included in the request headers, and the server verifies the token to authenticate and authorize the request.
+
+Server-Side Implementation:
+
+The server-side implementation of your application determines whether it is stateful or stateless. HTMX itself does not impose any statefulness; it simply facilitates client-side interactions.
+
+You can use HTMX with both stateful and stateless server-side architectures. For example, you can use session cookies with server-side sessions or JWTs for stateless authentication.
