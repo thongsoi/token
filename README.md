@@ -1,2 +1,2 @@
 # token
-token-based authentication
+token-based without JSON authentication
