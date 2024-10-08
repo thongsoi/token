@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 
 	"github.com/thongsoi/token/handler"
 
@@ -32,6 +33,8 @@ func main() {
 	router := mux.NewRouter()
 
 	// Routes
+	router.HandleFunc("/", handler.LoginHandler(db)).Methods("GET")
+	r.HandleFunc("/login", serveLoginPage).Methods("GET")
 	router.HandleFunc("/login", handler.LoginHandler(db)).Methods("POST")
 	router.HandleFunc("/protected", handler.ProtectedHandler(db)).Methods("GET")
 
@@ -50,6 +53,11 @@ func main() {
 
 	fmt.Println("Server is running on port", port)
 	log.Fatal(http.ListenAndServe(":"+port, router))
+}
+
+func serveLoginPage(w http.ResponseWriter, r *http.Request) {
+	filePath := filepath.Join("templates", "login.html")
+	http.ServeFile(w, r, filePath)
 }
 
 // loggingMiddleware logs incoming HTTP requests

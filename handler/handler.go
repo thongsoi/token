@@ -2,10 +2,15 @@ package handler
 
 import (
 	"database/sql"
+	"fmt"
 	"net/http"
 
 	"github.com/thongsoi/token/service"
 )
+
+func IndexHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Welcome to the index page!")
+}
 
 func LoginHandler(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
