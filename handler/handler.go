@@ -3,7 +3,8 @@ package handler
 import (
 	"database/sql"
 	"net/http"
-	"your_project/service"
+
+	"github.com/thongsoi/token/service"
 )
 
 func LoginHandler(db *sql.DB) http.HandlerFunc {

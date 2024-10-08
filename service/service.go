@@ -5,7 +5,8 @@ import (
 	"database/sql"
 	"encoding/hex"
 	"errors"
-	"your_project/repository"
+
+	"github.com/thongsoi/token/repository"
 
 	"golang.org/x/crypto/bcrypt"
 )
