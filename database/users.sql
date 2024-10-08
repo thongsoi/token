@@ -6,5 +6,5 @@ CREATE TABLE users2 (
 
 CREATE TABLE tokens (
     token VARCHAR(255) PRIMARY KEY,
-    user_id INT REFERENCES users(id)
+    user_id INT REFERENCES users2(id)
 );

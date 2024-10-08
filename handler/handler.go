@@ -8,20 +8,22 @@ import (
 	"github.com/thongsoi/token/service"
 )
 
-func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Welcome to the home page!")
-}
-
 func LoginHandler(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		username := r.FormValue("username")
 		password := r.FormValue("password")
 
+		fmt.Println("Attempting login with username:", username) // Log username
+
+		// Try to authenticate the user
 		token, err := service.AuthenticateUser(db, username, password)
 		if err != nil {
+			fmt.Println("Login error:", err) // Log the error
 			http.Error(w, "Invalid login", http.StatusUnauthorized)
 			return
 		}
+
+		fmt.Println("Login successful, generated token:", token) // Log token
 
 		// Inject token into HTMX response or set as cookie
 		w.Header().Set("HX-Trigger", "logged_in")

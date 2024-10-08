@@ -10,7 +10,7 @@
 <body>
     <form hx-post="/login" hx-swap="outerHTML" hx-trigger="submit" hx-target="#response1">
     <input type="text" name="username" placeholder="Username" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
+    <input type="password" name="password" placeholder="Password" required><br><br>
     <button type="submit">Login</button>
     </form>
 <div id="response1"></div>
@@ -25,6 +25,7 @@ document.addEventListener("htmx:afterOnLoad", function(evt) {
 });
 </script>
 
+<br>
 <button hx-get="/protected" hx-headers='{"HX-Token": localStorage.getItem("auth_token")}' hx-target="#response2">Get Protected Content</button>
 <div id="response2"></div>
 

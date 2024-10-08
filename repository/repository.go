@@ -4,7 +4,7 @@ import (
 	"database/sql"
 
 	_ "github.com/lib/pq"
-	models "github.com/thongsoi/token/models"
+	"github.com/thongsoi/token/models"
 )
 
 func GetUserByUsername(db *sql.DB, username string) (*models.User, error) {
