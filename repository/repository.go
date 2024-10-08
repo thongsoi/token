@@ -4,12 +4,12 @@ import (
 	"database/sql"
 
 	_ "github.com/lib/pq"
-	models "github.com/thongsoi/token/model"
+	models "github.com/thongsoi/token/models"
 )
 
 func GetUserByUsername(db *sql.DB, username string) (*models.User, error) {
 	var user models.User
-	query := "SELECT id, username, password FROM users WHERE username = $1"
+	query := "SELECT id, username, password FROM users2 WHERE username = $1"
 	err := db.QueryRow(query, username).Scan(&user.ID, &user.Username, &user.Password)
 	if err != nil {
 		return nil, err

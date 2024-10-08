@@ -34,7 +34,7 @@ func main() {
 
 	// Routes
 	router.HandleFunc("/", handler.LoginHandler(db)).Methods("GET")
-	r.HandleFunc("/login", serveLoginPage).Methods("GET")
+	router.HandleFunc("/login", serveLoginPage).Methods("GET")
 	router.HandleFunc("/login", handler.LoginHandler(db)).Methods("POST")
 	router.HandleFunc("/protected", handler.ProtectedHandler(db)).Methods("GET")
 

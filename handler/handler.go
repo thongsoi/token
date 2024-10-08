@@ -9,7 +9,7 @@ import (
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Welcome to the index page!")
+	fmt.Fprint(w, "Welcome to the home page!")
 }
 
 func LoginHandler(db *sql.DB) http.HandlerFunc {
